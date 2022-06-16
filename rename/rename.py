@@ -59,12 +59,17 @@ def main(argv):
     arg_directory = ""
     arg_with=""
     arg_help = f'''
-    Syntax -[i <input>| -d <directory>] -o <output> -r <replaced>  -w <with> 
-    -i, --input, : Input filename
-    -d, --directory, : Input directory
-    -o, --output, : Output filename
-    -r, --replaced, : Word to replace 
-    -w, --with, : Word replacing the other word
+    Usage:
+    wordrename -[i <input>| -d <directory>] -o <output> -r <replaced>  -w <with> 
+
+    Replace words with those provided
+
+    Options:
+    -i, --input        Input filename
+    -d, --directory    Input directory
+    -o, --output       Output filename
+    -r, --replaced     Word to replace 
+    -w, --with         Word replacing the other word
     '''
     try:
         opts, _ = getopt.getopt(argv[1:], "hd:i:r:w:o:", ["help", "directory=","input=", 
