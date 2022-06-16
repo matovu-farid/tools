@@ -59,7 +59,7 @@ def main(argv):
     arg_directory = ""
     arg_with=""
     arg_help = f'''
-    {argv[0]} -[i <input>| -d <directory>] -o <output> -r <replaced>  -w <with> 
+    Syntax -[i <input>| -d <directory>] -o <output> -r <replaced>  -w <with> 
     -i, --input, : Input filename
     -d, --directory, : Input directory
     -o, --output, : Output filename
@@ -86,6 +86,10 @@ def main(argv):
         arg_with = arg
       elif opt in ("-d","--directory"):
         arg_directory = arg
+      elif opt in ("-h","--help"):
+        print(arg_help)
+        sys.exit(2)
+  
     if(arg_input == "" and arg_directory == ""):
       print("Please provide the input file or a directory")
       sys.exit(6)
