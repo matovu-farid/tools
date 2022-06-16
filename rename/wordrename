@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sys
 import getopt
 
@@ -24,7 +26,11 @@ def generate_files(input_name,replaced,replaced_with,output_name):
 
     output_array = []
     for line in lines:
-      sanitized = line.replace(replaced,replaced_with)
+      normal = line.replace(replaced,replaced_with)
+      plural = normal.replace(f"{replaced}s",f"{replaced_with}s")
+      title = plural.replace(f"{replaced.title()}",f"{replaced_with.title()}")
+      lower = title.replace(f"{replaced.lower()}",f"{replaced_with.lower()}")
+      sanitized = lower.replace(f"{replaced.upper()}",f"{replaced_with.upper()}")
       output_array.append(sanitized)
 
 
@@ -75,6 +81,9 @@ def main(argv):
         arg_with = arg
       elif opt in ("-d","--directory"):
         arg_directory = arg
+    if(arg_input == ""):
+      print("Please provide the input file")
+      sys.exit(6)
     if(arg_replaced == ''):
       print("Please insert the word replaced")
       sys.exit(3)
