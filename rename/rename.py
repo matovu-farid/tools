@@ -24,8 +24,11 @@ def generate_files(input_name,replaced,replaced_with,output_name):
 
     output_array = []
     for line in lines:
-      sanitized = line.replace(replaced,replaced_with)
-      sanitized = line.replace(f"{replaced}s",f"{replaced_with}s")
+      normal = line.replace(replaced,replaced_with)
+      plural = normal.replace(f"{replaced}s",f"{replaced_with}s")
+      title = plural.replace(f"{replaced.title()}",f"{replaced_with.title()}")
+      lower = title.replace(f"{replaced.lower()}",f"{replaced_with.lower()}")
+      sanitized = lower.replace(f"{replaced.upper()}",f"{replaced_with.upper()}")
       output_array.append(sanitized)
 
 
