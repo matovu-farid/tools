@@ -12,14 +12,9 @@ def get_files(directory):
 def generate_files(input_name,replaced,replaced_with,output_name):
 
     file = open(input_name,"r")
-    input_name
     extension = os.path.splitext(input_name)[1]
-    print(extension)
     created_name = f"{input_name}_output{extension}"
-    print(created_name)
-
     output = open(output_name or created_name,"w")
-
     lines= file.readlines()
 
     output_array = []
@@ -96,13 +91,13 @@ def main(argv):
         sys.exit(2)
   
     if(arg_input == "" and arg_directory == ""):
-      print("Please provide the input file or a directory")
+      print("Please provide the input file or a directory 🧐")
       sys.exit(6)
     if(arg_replaced == ''):
-      print("Please insert the word replaced")
+      print("Please insert the word replaced 🧐")
       sys.exit(3)
     if(arg_with == ''):
-      print("Please insert the word that is replpaceing it")
+      print("Please insert the word that is replpaceing it 🧐")
       sys.exit(4)
 
     if(arg_input != ''):  
