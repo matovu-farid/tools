@@ -1,4 +1,4 @@
-from file_helpers import get_files, multi_generate,multi_generate
+from file_helpers import get_files, wordrename_file,multi_generate
 def get_directories(directory_string):
    return directory_string.split(',')
 
@@ -7,4 +7,4 @@ def wordrename_directory(directory_name,replaced,replaced_with,output):
   for directory in directories:
     files = get_files(directory)
     for file in files:
-      multi_generate(f"{directory}/{file}",replaced,replaced_with,output)
+      wordrename_file(f"{directory}/{file}",replaced,replaced_with,output)

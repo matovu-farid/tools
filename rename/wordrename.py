@@ -1,7 +1,7 @@
 import sys
 import getopt
 from help_string import help_string
-from file_helpers import multi_generate, get_files
+from file_helpers import wordrename_file
 from directory_helpers import wordrename_directory
 
 def main(argv):
@@ -46,7 +46,7 @@ def main(argv):
       sys.exit(4)
 
     if(arg_input != ''):  
-      multi_generate(arg_input,arg_replaced,arg_with,arg_output)
+      wordrename_file(arg_input,arg_replaced,arg_with,arg_output)
     if arg_directory!= '':
       wordrename_directory(arg_directory,arg_replaced,arg_with,arg_output)
 

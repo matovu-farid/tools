@@ -29,7 +29,7 @@ def generate_files(input_name,replaced,replaced_with,output_name):
     output.close()
     print("Rename succesfull 😀")
 
-def multi_generate(input_name,replaced,replaced_with,output_name):
+def wordrename_file(input_name,replaced,replaced_with,output_name):
 
   replaced_array = replaced.split(',')
   with_array = replaced_with.split(',')
