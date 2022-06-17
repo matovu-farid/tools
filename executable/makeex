@@ -47,15 +47,13 @@ def create_executable(input_name,output_name):
     
     
     print("Created executable succesfull 😀")
-
     try:
       output = os.path.basename(final_output_name)
       os.symlink(os.path.join(os.path.abspath(final_output_name)), os.path.join('/usr/bin/',output))
-      print("Successfully added a symlink 😀")
+      print("Successfully added a symlink")
     except OSError as e:
       if e.errno != errno.EEXIST:
             raise  
-   
    
 
 if __name__ == "__main__":
