@@ -1,8 +1,8 @@
 import sys
 import getopt
-import os
 from help_string import help_string
 from file_helpers import multi_generate, get_files
+from directory_helpers import get_directories
 
 def main(argv):
     arg_input = ""
@@ -55,9 +55,13 @@ def main(argv):
           multi_generate(f"{directory}/{file}",arg_replaced,arg_with,arg_output)
 
 
-def get_directories(directory_string):
-   return directory_string.split(',')
 
+def wordrename_directory(directory_name,replaced,replaced_with,output):
+  directories  = get_directories(directory_name)
+  for directory in directories:
+    files = get_files(directory)
+    for file in files:
+      multi_generate(f"{directory}/{file}",replaced,replaced_with,output)
 
 
 
