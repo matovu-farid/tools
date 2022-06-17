@@ -2,7 +2,7 @@ import sys
 import getopt
 from help_string import help_string
 from file_helpers import multi_generate, get_files
-from directory_helpers import get_directories
+from directory_helpers import wordrename_directory
 
 def main(argv):
     arg_input = ""
@@ -48,20 +48,11 @@ def main(argv):
     if(arg_input != ''):  
       multi_generate(arg_input,arg_replaced,arg_with,arg_output)
     if arg_directory!= '':
-      directories  = get_directories(arg_directory)
-      for directory in directories:
-        files = get_files(directory)
-        for file in files:
-          multi_generate(f"{directory}/{file}",arg_replaced,arg_with,arg_output)
+      wordrename_directory(arg_directory,arg_replaced,arg_with,arg_output)
 
 
 
-def wordrename_directory(directory_name,replaced,replaced_with,output):
-  directories  = get_directories(directory_name)
-  for directory in directories:
-    files = get_files(directory)
-    for file in files:
-      multi_generate(f"{directory}/{file}",replaced,replaced_with,output)
+
 
 
 
