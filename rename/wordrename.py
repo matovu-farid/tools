@@ -1,7 +1,8 @@
 import sys
 import getopt
-
 import os
+from help_string import help_string
+
 
 
 def get_files(directory):
@@ -53,19 +54,7 @@ def main(argv):
     arg_replaced = ""
     arg_directory = ""
     arg_with=""
-    arg_help = f'''
-    Usage:
-    wordrename -[i <input>| -d <directory>] -o <output> -r <replaced>  -w <with> 
-
-    Replace words with those provided
-
-    Options:
-    -i, --input        Input filename
-    -d, --directory    Input directory
-    -o, --output       Output filename
-    -r, --replaced     Word to replace 
-    -w, --with         Word replacing the other word
-    '''
+    arg_help = help_string
     try:
         opts, _ = getopt.getopt(argv[1:], "hd:i:r:w:o:", ["help", "directory=","input=", 
         "replaced=","with=", "output="])
