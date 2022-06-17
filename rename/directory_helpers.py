@@ -1,3 +1,4 @@
+from file_helpers import get_files, multi_generate,multi_generate
 def get_directories(directory_string):
    return directory_string.split(',')
 
