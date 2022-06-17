@@ -1,9 +1,18 @@
 import os
 import sys
+
+def replace_all(input:str, replaced: str,replaced_with:str):
+  normal = input.replace(replaced,replaced_with)
+  plural = normal.replace(f"{replaced}s",f"{replaced_with}s")
+  title = plural.replace(f"{replaced.title()}",f"{replaced_with.title()}")
+  lower = title.replace(f"{replaced.lower()}",f"{replaced_with.lower()}")
+  sanitized = lower.replace(f"{replaced.upper()}",f"{replaced_with.upper()}")
+  return sanitized
+
 def get_files(directory):
   obj = os.scandir(directory)
   entrylist = list(filter(lambda x: x.is_file,obj))
-  return list(map(lambda x: x.name,entrylist))
+  return list(map(lambda x: x.path,entrylist))
 
 def generate_files(input_name,replaced,replaced_with,output_name):
 
@@ -15,11 +24,7 @@ def generate_files(input_name,replaced,replaced_with,output_name):
 
     output_array = []
     for line in lines:
-      normal = line.replace(replaced,replaced_with)
-      plural = normal.replace(f"{replaced}s",f"{replaced_with}s")
-      title = plural.replace(f"{replaced.title()}",f"{replaced_with.title()}")
-      lower = title.replace(f"{replaced.lower()}",f"{replaced_with.lower()}")
-      sanitized = lower.replace(f"{replaced.upper()}",f"{replaced_with.upper()}")
+      sanitized = replace_all(line,replaced, replaced_with)
       output_array.append(sanitized)
 
 
